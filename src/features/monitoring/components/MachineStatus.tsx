@@ -82,3 +82,5 @@ export const MachineStatus = memo<MachineStatusProps>(({ machines }) => {
     // Só re-renderiza se houver mudança real nos dados das máquinas
     return JSON.stringify(prevProps.machines) === JSON.stringify(nextProps.machines);
 });
+
+MachineStatus.displayName = 'MachineStatus';

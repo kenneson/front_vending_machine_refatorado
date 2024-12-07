@@ -16,6 +16,7 @@ export const getMachines = async (): Promise<Machine[]> => {
         
         if (Array.isArray(response.data)) {
             return response.data.map(machine => ({
+                idDono: machine.idDono,
                 idMaquina: machine.idMaquina,
                 nomeMaquina: machine.nomeMaquina || machine.nome,
                 descricao: machine.descricao || `Máquina ${machine.codUnico || ''}`,
