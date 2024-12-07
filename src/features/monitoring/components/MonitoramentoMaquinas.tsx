@@ -44,7 +44,7 @@ export default function MonitoramentoMaquinas() {
           <p>Status: {maquina.status}</p>
           <p>Tipo: {maquina.tipoMaquina}</p>
           <p>Produtos: {maquina.numProdutos}</p>
-          <p>Último acesso: {new Date(maquina.ultimoAcesso).toLocaleString()}</p>
+          <p>Último acesso: {maquina.ultimoAcesso !== undefined ? new Date(maquina.ultimoAcesso).toLocaleString() : 'Nunca acessado'}</p>
         </div>
       ))}
     </div>
