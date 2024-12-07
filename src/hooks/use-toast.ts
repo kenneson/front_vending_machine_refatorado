@@ -16,8 +16,8 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const actionTypes = {
+// Definindo como uma constante que será usada no código
+export const ACTIONS = {
   ADD_TOAST: 'ADD_TOAST',
   UPDATE_TOAST: 'UPDATE_TOAST',
   DISMISS_TOAST: 'DISMISS_TOAST',
@@ -31,7 +31,7 @@ function genId() {
   return count.toString();
 }
 
-type ActionType = typeof actionTypes;
+type ActionType = typeof ACTIONS;
 
 type Action =
   | {
@@ -50,7 +50,6 @@ type Action =
       type: ActionType['REMOVE_TOAST'];
       toastId?: ToasterToast['id'];
     };
-
 interface State {
   toasts: ToasterToast[];
 }
