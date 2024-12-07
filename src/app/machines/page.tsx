@@ -51,9 +51,6 @@ const MachineList: React.FC = () => {
         fetchMachines();
     }, []);
 
-    const getStatusColor = (status: 'ONLINE' | 'OFFLINE') => {
-        return status === 'ONLINE' ? 'bg-green-500' : 'bg-red-500';
-    };
 
     if (isLoading) {
         return (
