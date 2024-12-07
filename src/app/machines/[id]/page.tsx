@@ -154,7 +154,7 @@ const MachineDetails: React.FC<MachineDetailsProps> = ({ params }) => {
                     <ProductList machineId={id} />
                 </TabsContent>
                 <TabsContent value="add-product">
-                    <ProductForm machineId={id} />
+                    <ProductForm machineId={Number(id)} />
                 </TabsContent>
             </Tabs>
         </div>

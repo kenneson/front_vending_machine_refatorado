@@ -32,7 +32,7 @@ const ProductForm: React.FC<{ machineId: number }> = ({ machineId }) => {
             // Converte os campos que precisam ser números
             const dataToSend = {
                 ...formData,
-                idMaquina: parseInt(machineId, 10),
+                idMaquina: parseInt(String(machineId), 10),
                 estoque: parseInt(formData.estoque, 10), // Converte estoque para número inteiro
                 valorUnitario: parseFloat(formData.valorUnitario), // Converte valorUnitario para número
                 medidaUnitaria: parseInt(formData.medidaUnitaria, 10), // Converte medidaUnitaria para número
