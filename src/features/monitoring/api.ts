@@ -3,10 +3,6 @@ import { Machine, Transaction } from './types';
 
 const BASE_URL = 'https://limpomatic-9617a4f754e1.herokuapp.com';
 
-interface MachinesResponse {
-    maquinas: Machine[];
-}
-
 interface TransactionsResponse {
     transacoes: Transaction[];
 }
@@ -16,7 +12,7 @@ export const getMachines = async (): Promise<Machine[]> => {
         console.log('Fetching machines from:', `${BASE_URL}/monitoramento`);
         const response = await axios.get(`${BASE_URL}/monitoramento`);
         console.log('Raw response:', response);
-        console.log('Machine status values:', response.data.map((m: { idMaquina: any; status: any; }) => ({ id: m.idMaquina, status: m.status })));
+        console.log('Machine status values:', response.data.map((m: Machine) => ({ id: m.idMaquina, status: m.status })));
         
         if (Array.isArray(response.data)) {
             return response.data.map(machine => ({
@@ -29,14 +25,12 @@ export const getMachines = async (): Promise<Machine[]> => {
                 ultimoAcesso: machine.ultimoAcesso || new Date().toISOString(),
                 numProdutos: machine.numProdutos || 0,
                 storeId: machine.storeId,
-                idDono: machine.idDono || null,
             }));
         }
-        
         return [];
     } catch (error) {
         console.error('Error fetching machines:', error);
-        return [];
+        throw error;
     }
 };
 

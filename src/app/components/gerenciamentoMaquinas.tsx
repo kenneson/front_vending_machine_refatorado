@@ -5,10 +5,18 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import Link from "next/link";
 
+// Define the interface for a machine object
+interface Machine {
+    idMaquina: number;
+    nomeMaquina: string;
+    online: boolean;
+}
+
 const MachineList: React.FC = () => {
-    const [machines, setMachines] = useState([]);
+    // Update the state to use the Machine interface
+    const [machines, setMachines] = useState<Machine[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         setIsLoading(true);
